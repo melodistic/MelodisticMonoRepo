@@ -1,12 +1,14 @@
 version: '3'
 services:
   stream-frontend:
+    restart: always
     build: 
       context: streaming-frontend
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
   stream-backend:
+    restart: always
     build:
       context: stream
       dockerfile: Dockerfile
@@ -15,6 +17,7 @@ services:
     ports:
       - "5050:5050"
   combiner-system:
+    restart: always
     build:
       context: combiner/server
       dockerfile: Dockerfile
