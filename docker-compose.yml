@@ -1,0 +1,25 @@
+version: '3'
+services:
+  stream-frontend:
+    build: 
+      context: streaming-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+  stream-backend:
+    build:
+      context: stream
+      dockerfile: Dockerfile
+    volumes:
+      - ./combine-result:/app/combine-result
+    ports:
+      - "5050:5050"
+  combiner-system:
+    build:
+      context: combiner/server
+      dockerfile: Dockerfile
+    volumes:
+      - ./extract-data:/app/extract-data
+      - ./combine-result:/app/combine-result
+    ports:
+      - "5500:5500"

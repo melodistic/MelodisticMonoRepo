@@ -1,0 +1,12 @@
+[submodule "combiner"]
+	path = combiner
+	url = https://github.com/melodistic/Melodistic-Combiner
+[submodule "melodistic-model"]
+	path = melodistic-model
+	url = https://github.com/melodistic/Melodistic-Model
+[submodule "stream"]
+	path = stream
+	url = https://github.com/melodistic/Streaming-Server
+[submodule "streaming-frontend"]
+	path = streaming-frontend
+	url = https://github.com/melodistic/streaming-frontend
