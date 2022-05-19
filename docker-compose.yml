@@ -2,6 +2,7 @@ version: '3'
 services:
   stream-frontend:
     restart: always
+    image: melodisticmonorepo_stream-frontend
     build: 
       context: streaming-frontend
       dockerfile: Dockerfile
@@ -9,6 +10,7 @@ services:
       - "3000:3000"
   stream-backend:
     restart: always
+    image: melodisticmonorepo_stream-backend
     build:
       context: stream
       dockerfile: Dockerfile
@@ -18,6 +20,7 @@ services:
       - "5050:5050"
   combiner-system:
     restart: always
+    image: melodisticmonorepo_combiner-system
     build:
       context: combiner/server
       dockerfile: Dockerfile
@@ -26,3 +29,7 @@ services:
       - ./combine-result:/app/combine-result
     ports:
       - "5500:5500"
+    deploy:
+      resources:
+        limits:
+          memory: 10g
