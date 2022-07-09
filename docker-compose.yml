@@ -15,7 +15,7 @@ services:
       context: stream
       dockerfile: Dockerfile
     volumes:
-      - ./combine-result:/app/song
+      - ./combine-result:/app/combine-result
     ports:
       - "5050:5050"
   combiner-system:
@@ -25,7 +25,8 @@ services:
       context: combiner/server
       dockerfile: Dockerfile
     volumes:
-      - ./extract-data:/app/extract-data
+      - ./extract-data:/app/song
+      - ./features:/app/features
       - ./combine-result:/app/combine-result
     ports:
       - "5500:5500"
