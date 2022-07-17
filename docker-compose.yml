@@ -57,6 +57,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./uploads:/app/uploads
     environment:
       - DATABASE_URL=postgresql://melodistic:melodistic-pwd@20.24.147.227:5432/melodistic?schema=public
       - JWT_SECRET=opalhas1secret
