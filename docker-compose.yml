@@ -27,6 +27,8 @@ services:
       - ./combine-result:/app/combine-result
     ports:
       - "5050:5050"
+    networks:
+      - melodistic-network
   combiner-system:
     restart: always
     image: melodisticmonorepo_combiner-system
