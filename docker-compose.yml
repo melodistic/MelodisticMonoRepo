@@ -1,13 +1,20 @@
 version: '3'
 services:
-  stream-frontend:
+  # stream-frontend:
+  #   restart: always
+  #   image: melodisticmonorepo_stream-frontend
+  #   build: 
+  #     context: streaming-frontend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  redis:
+    image: redis
     restart: always
-    image: melodisticmonorepo_stream-frontend
-    build: 
-      context: streaming-frontend
-      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD='opalhas1secret'
   stream-backend:
     restart: always
     image: melodisticmonorepo_stream-backend
@@ -34,3 +41,36 @@ services:
       resources:
         limits:
           memory: 10g
+  backend:
+    restart: always
+    image: melodisticmonorepo_backend
+    depends_on:
+      - redis
+    build:
+      context: Melodistic-Backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL="postgresql://melodistic:melodistic-pwd@20.24.147.227:5432/melodistic?schema=public"
+      - JWT_SECRET="opalhas1secret"
+      - GOOGLE_CLIENT_ID="237236624261-vjk2fq2s9ns30vccaain77ah758ejh53.apps.googleusercontent.com"
+      - GOOGLE_CLIENT_SECRET="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"
+      - PORT=3000
+      - REDIS_HOST='localhost'
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD='opalhas1secret'
+      - EMAIL_FROM_ADDRESS="melodistic-service@ggolfz.me"
+      - SENDGRID_API_KEY="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"
+  nginx:
+    restart: always
+    depends_on:
+      - stream-backend
+      - backend
+      - combiner-system
+    image: melodisticmonorepo_nginx
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
