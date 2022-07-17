@@ -17,7 +17,7 @@ services:
       - REDIS_PASSWORD=opalhas1secret
     networks:
       - melodistic-network
-  stream-backend:
+  melodistic_stream:
     restart: always
     image: melodisticmonorepo_stream-backend
     build:
@@ -29,7 +29,7 @@ services:
       - "5050:5050"
     networks:
       - melodistic-network
-  combiner-system:
+  melodistic_combiner:
     restart: always
     image: melodisticmonorepo_combiner-system
     build:
@@ -47,7 +47,7 @@ services:
           memory: 10g
     networks:
       - melodistic-network
-  backend:
+  melodistic_backend:
     restart: always
     image: melodisticmonorepo_backend
     depends_on:
@@ -63,7 +63,7 @@ services:
       - GOOGLE_CLIENT_ID=237236624261-vjk2fq2s9ns30vccaain77ah758ejh53.apps.googleusercontent.com
       - GOOGLE_CLIENT_SECRET=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
       - PORT=3000
-      - REDIS_HOST=redis
+      - REDIS_HOST=melodisticmonorepo_redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=opalhas1secret
       - EMAIL_FROM_ADDRESS=melodistic-service@ggolfz.me
@@ -73,9 +73,9 @@ services:
   nginx:
     restart: always
     depends_on:
-      - stream-backend
-      - backend
-      - combiner-system
+      - melodistic_stream
+      - melodistic_backend
+      - melodistic_combiner
     image: melodisticmonorepo_nginx
     build:
       context: nginx
