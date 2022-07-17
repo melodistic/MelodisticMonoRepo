@@ -57,7 +57,7 @@ services:
       - GOOGLE_CLIENT_ID="237236624261-vjk2fq2s9ns30vccaain77ah758ejh53.apps.googleusercontent.com"
       - GOOGLE_CLIENT_SECRET="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"
       - PORT=3000
-      - REDIS_HOST='localhost'
+      - REDIS_HOST='redis'
       - REDIS_PORT=6379
       - REDIS_PASSWORD='opalhas1secret'
       - EMAIL_FROM_ADDRESS="melodistic-service@ggolfz.me"
