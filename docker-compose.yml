@@ -14,7 +14,7 @@ services:
     ports:
       - "6379:6379"
     environment:
-      - REDIS_PASSWORD='opalhas1secret'
+      - REDIS_PASSWORD=opalhas1secret
     networks:
       - melodistic-network
   stream-backend:
@@ -58,16 +58,16 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL="postgresql://melodistic:melodistic-pwd@20.24.147.227:5432/melodistic?schema=public"
-      - JWT_SECRET="opalhas1secret"
-      - GOOGLE_CLIENT_ID="237236624261-vjk2fq2s9ns30vccaain77ah758ejh53.apps.googleusercontent.com"
-      - GOOGLE_CLIENT_SECRET="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"
+      - DATABASE_URL=postgresql://melodistic:melodistic-pwd@20.24.147.227:5432/melodistic?schema=public
+      - JWT_SECRET=opalhas1secret
+      - GOOGLE_CLIENT_ID=237236624261-vjk2fq2s9ns30vccaain77ah758ejh53.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=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
       - PORT=3000
-      - REDIS_HOST='localhost'
+      - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - REDIS_PASSWORD='opalhas1secret'
-      - EMAIL_FROM_ADDRESS="melodistic-service@ggolfz.me"
-      - SENDGRID_API_KEY="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"
+      - REDIS_PASSWORD=opalhas1secret
+      - EMAIL_FROM_ADDRESS=melodistic-service@ggolfz.me
+      - SENDGRID_API_KEY=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
     networks:
       - melodistic-network
   nginx:
@@ -82,6 +82,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+      - "443:443"
     networks:
       - melodistic-network
 networks:
