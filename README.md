@@ -22,3 +22,8 @@ sudo docker push melodistic.azurecr.io/melodisticmonorepo_combiner-system
 sudo docker push melodistic.azurecr.io/melodisticmonorepo_stream-backend
 sudo docker push melodistic.azurecr.io/melodisticmonorepo_nginx
 ```
+
+### INIT DB
+```
+sudo docker run --name melodistic-postgres -e POSTGRES_PASSWORD=melodistic-pwd -e POSTGRES_USER=melodistic -e POSTGRES_DB=melodistic -p 5432:5432 -d postgres
+```
