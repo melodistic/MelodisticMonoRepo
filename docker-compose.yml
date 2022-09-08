@@ -84,10 +84,6 @@ services:
     build:
       context: nginx
       dockerfile: Dockerfile
-    links:
-      - "melodistic_backend:melodistic_backend"
-      - "melodistic_stream:melodistic_stream"
-      - "melodistic_combiner:melodistic_combiner"
     ports:
       - "80:80"
       - "443:443"
