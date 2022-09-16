@@ -27,3 +27,8 @@ sudo docker push melodistic.azurecr.io/melodisticmonorepo_nginx
 ```
 sudo docker run --name melodistic-postgres -e POSTGRES_PASSWORD=melodistic-pwd -e POSTGRES_USER=melodistic -e POSTGRES_DB=melodistic -p 5432:5432 -d postgres
 ```
+
+### INIT CACHE STORAGE
+```
+docker run -p 6379:6379 --name redis -e REDIS_PASSWORD=opalhas1secret -d redis
+```
