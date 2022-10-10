@@ -31,6 +31,23 @@ services:
           memory: 10g
     networks:
       - melodistic-network
+  melodistic_processor:
+    restart: always
+    image: melodisticmonorepo_processor
+    build:
+      context: melodistic-processor
+      dockerfile: Dockerfile
+    volumes:
+      - ./extract-data/song:/app/song
+      - ./extract-data/features:/app/features
+    ports:
+      - "6000:6000"
+    deploy:
+      resources:
+        limits:
+          memory: 10g
+    networks:
+      - melodistic-network
   melodistic_backend:
     restart: always
     image: melodisticmonorepo_backend

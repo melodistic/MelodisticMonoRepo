@@ -13,3 +13,6 @@
 [submodule "Melodistic-Backend"]
 	path = Melodistic-Backend
 	url = https://github.com/melodistic/Melodistic-Backend
+[submodule "melodistic-processor"]
+	path = melodistic-processor
+	url = https://github.com/melodistic/Melodistic-Processor
