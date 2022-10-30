@@ -72,6 +72,7 @@ services:
       - REDIS_PASSWORD=opalhas1secret
       - EMAIL_FROM_ADDRESS=melodistic-service@ggolfz.me
       - SENDGRID_API_KEY=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
+      - API_ENDPOINT=https://melodistic.me
     networks:
       - melodistic-network
   nginx:
