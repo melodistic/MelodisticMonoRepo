@@ -60,7 +60,7 @@ services:
     restart: always
     image: melodisticmonorepo_backend
     depends_on:
-      - redis
+      - melodistic_redis
     build:
       context: Melodistic-Backend
       dockerfile: Dockerfile
