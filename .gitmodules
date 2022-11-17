@@ -7,9 +7,6 @@
 [submodule "stream"]
 	path = stream
 	url = https://github.com/melodistic/Streaming-Server
-[submodule "streaming-frontend"]
-	path = streaming-frontend
-	url = https://github.com/melodistic/streaming-frontend
 [submodule "Melodistic-Backend"]
 	path = Melodistic-Backend
 	url = https://github.com/melodistic/Melodistic-Backend
