@@ -30,6 +30,11 @@ services:
       - ./extract-data/song:/app/song
       - ./extract-data/features:/app/features
       - ./combine-result:/app/combine-result
+    environment:
+      - DB_HOST=20.24.21.220
+      - DB_USER=melodistic
+      - DB_PASSWORD=melodistic-pwd
+      - DB_NAME=melodistic
     ports:
       - "5500:5500"
     deploy:
@@ -48,6 +53,11 @@ services:
       - ./extract-data/song:/app/song
       - ./extract-data/features:/app/features
       - ./uploads:/app/uploads
+    environment:
+      - DB_HOST=20.24.21.220
+      - DB_USER=melodistic
+      - DB_PASSWORD=melodistic-pwd
+      - DB_NAME=melodistic
     ports:
       - "6000:6000"
     deploy:
