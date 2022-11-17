@@ -68,6 +68,9 @@ services:
       - "3000:3000"
     volumes:
       - ./uploads:/app/uploads
+      - ./extract-data/song:/app/song
+      - ./extract-data/features:/app/features
+      - ./combine-result:/app/combine-result
     environment:
       - DATABASE_URL=postgresql://melodistic:melodistic-pwd@20.24.21.220:5432/melodistic?schema=public
       - JWT_SECRET=opalhas1secret
