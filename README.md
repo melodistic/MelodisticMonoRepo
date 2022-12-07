@@ -1,6 +1,6 @@
 # Melodistic Mono Repo
 
-The central repository providing submodules for remoting to all Melodistic services.
+The central repository provides submodules for remoting to all Melodistic services.
 
 ## Submodules List
 
